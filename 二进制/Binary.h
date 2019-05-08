@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -94,16 +93,17 @@ public:
 	}
 	Binary operator-(Binary b)
 	{
-		int *pt = sub(convertBuMa().getBinary(), b.convertBuMa().getBinary());
-		if (*pt != *(pt + 1))
-		{
-			string error = *pt > 0 ? string("负溢") : string("正溢");
-			delete[] pt;
-			throw error;
-		}
-		Binary b1 = Binary(pt);
-		delete[] pt;
-		return b1.convertBuMa();
+		//int *pt = sub(convertBuMa().getBinary(), b.convertBuMa().getBinary());
+		//if (*pt != *(pt + 1))
+		//{
+		//	string error = *pt > 0 ? string("负溢") : string("正溢");
+		//	delete[] pt;
+		//	throw error;
+		//}
+		//Binary b1 = Binary(pt);
+		//delete[] pt;
+		//return b1.convertBuMa();
+		return *this + Binary(-b.getDecimal());
 	}
 	string toBinaryString()
 	{
